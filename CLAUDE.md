@@ -10,10 +10,10 @@ There is no build system, package manager, or test suite — the entire site is 
 
 ## File layout
 
-- [index.html](index.html) — the whole site. Structure: inline CSS (`:root` variables, then component styles) → `<body>` with a fixed background photo (`.bg-fixed`, embedded as a base64 data URI — this is why the file is large despite few lines) → content sections (`.about`, `.work-section`, `.facts-section`) → a small inline script that copies the hero photo into a blurred background layer.
+- [index.html](index.html) — the whole site. Structure: inline CSS (`:root` variables, then component styles) → `<body>` with a `<header class="hero">` (portrait photo + name + tagline, fixed to the right column on desktop) → content sections (`.about`, `.facts-section`, `.work-section`) → finale quote.
 - [profile.md](profile.md) — the owner's profile (who Александр is, strengths, interests). Read this first to understand who the site is for and to write in his voice.
 - [про-меня.md](про-меня.md), [проекты.md](проекты.md), [факты.md](факты.md) — source drafts for the "Обо мне" / "Чем занимаюсь" / "Интересные факты" sections. These are the content of record; `index.html` is their rendered form. When content changes, keep the `.md` source and the HTML section in sync.
-- [images/](images/) — source image(s) (e.g. `Основа.jpg`) used to produce the embedded photo in `index.html`.
+- [images/](images/) — photos referenced directly by `index.html` via relative `<img src="images/...">` paths (not embedded as base64 — keep it that way, it's what keeps the HTML file small).
 
 ## Content & tone rules
 
